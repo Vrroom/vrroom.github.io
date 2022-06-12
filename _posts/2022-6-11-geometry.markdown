@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Geometry 1"
-date:   2022-05-31 17:37:14 +0530
+date:   2022-06-11 16:48:11 +0530
 categories: codeforces
 ---
 
