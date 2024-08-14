@@ -14,7 +14,7 @@ categories: blog
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-*This post is part of a new foundation that we are trying to create -- [Longtail AI Foundation](https://longtailai.org/), that hopes to increase accessibility for the hearing impaired. It describes our first steps towards creating a large-scale dataset for training bi-directional translation models between English and Indian Sign Language (ISL).* 
+*This post is part of a new foundation that we are trying to create -- [Longtail AI Foundation](https://longtailai.org/), that works towards increasing accessibility for the hearing impaired. It describes our first steps towards creating a large-scale dataset -- `isl-500` for training bi-directional translation models between English and Indian Sign Language (ISL).* 
 
 # Introduction
 
@@ -48,7 +48,7 @@ All this is to say, that we need to build a 5000 hour scale dataset for Sign Lan
 </table>
 </div>
 
-We first run a human pose estimation model [DWPose](https://github.com/IDEA-Research/DWPose) on news videos that we collected from YouTube. We design heuristics to label to pose sequences. These heuristics are described in detail later in this post. Some of these heuristics may abstain from labelling while others may not be applicable at test time. We use [Snorkel](https://github.com/snorkel-team/snorkel) to aggregate these heuristics and assign probabilistic labels on an unlabelled training set. Internally, Snorkel weighs agreement/disagreement between heuristics on the entire unlabelled training set to assign probabilistic labels. We use these probabilistic labels to train a hand-signer classifier on pose sequences. Since Snorkel is only applicable during training time, its necessary to train the classifier so that we can use it later to detect hand-signers.
+We first run a human pose estimation model [DWPose](https://github.com/IDEA-Research/DWPose) on news videos that we collected from YouTube. We design heuristics to label to pose sequences. These heuristics are described in detail later in this post. Some of these heuristics may abstain from labelling while others may not be applicable at test time. We use [Snorkel](https://github.com/snorkel-team/snorkel) to aggregate these heuristics and assign probabilistic labels on an unlabelled training set. Internally, Snorkel weighs agreement/disagreement between heuristics on the entire unlabelled training set to assign probabilistic labels. We use these probabilistic labels to train a hand-signer classifier on pose sequences. Since Snorkel is only applicable during training time, it's necessary to train the classifier so that we can use it later to detect hand-signers.
 
 # Snorkel: Making sense of Weak Labels
 
@@ -56,14 +56,14 @@ Let me be up front. I don't know how Snorkel works. But let me use this space to
 
 Consider using majority vote to combine these heuristics. It's evident that since A, B and C always vote the same way, they represent the majority. All the valuable information from heuristics D and E is lost in this exercise.
 
-My guess is that Snorkel improves on majority vote by detecting correlations between heuristics and avoids double, or in this case, triple counting certain heuristics. Thus, it's probabilistic labels are more reliable than the heuristics themselves.
+My guess is that Snorkel improves on majority vote by detecting correlations between heuristics and avoids double, or in this case, triple counting certain heuristics. Thus, its probabilistic labels are more reliable than the heuristics themselves.
 
 # Heuristics for classifying Hand-Signers
 
 Here I describe the heuristics I developed for classifying pose sequences. 
 
 * `num tracks`: This heuristic counts the number of humans simultaneously tracked in a sequence. If there are many people tracked, it's unlikely that any one of them is a signer. This is a really coarse heuristic, but the table below shows that it is better than random (which will have an error rate of 0.5 for this binary classification problem). 
-* `video path`: This heuristic assigns labels based on the data source. For example, if the sequence came from a SL dictionary, we can be sure that the tracked person is indeed a hand-signer. This heuristic has 0 error rate but has poor coverage as well. It highlights a common tradeoff in designing heuristics: it is hard to design heuristics that label all samples in the dataset with low error rate.
+* `video path`: This heuristic assigns labels based on the data source. For example, if the sequence came from a Sign Language dictionary, we can be sure that the tracked person is indeed a hand-signer. This heuristic has 0 error rate but has poor coverage as well. It highlights a common tradeoff in designing heuristics: it is hard to design heuristics that label all samples in the dataset with low error rate.
 * `legs visible`: While going through News Videos, I found that most hand-signers are either sitting, or are too close to the camera, so that their legs are not visible. Using pose estimation confidence scores, we can check this and assign a label. 
 * `only one person`: This is similar to the `num track` heuristic. If there is only one person tracked, it's likely that the person is a hand-signer. 
 * `bounding box`: This heuristic checks if the bounding box of a person is too small compared to video dimensions. If so, it's unlikely that the person is a hand-signer.
@@ -86,7 +86,7 @@ Here I describe the heuristics I developed for classifying pose sequences.
 
 I compared our classifier trained on Snorkel's probabilistic labels against few reasonable baselines. The simplest one is a majority vote, where among all the non-abstaining heuristics, we choose the majority vote. From the table, we can confirm our intuition that majority vote is not good. In fact, it's worse than our best heuristic (`movement`). 
 
-To control for the effect of Snorkel, we also trained the classifier the classifier on the labels from the movement heuristic. It is not surprising that this doesn't meaningfully impact the error rate. In fact, had it done so, I'd be more likely to attribute it to a bug in my code than to anything else.
+To control for the effect of Snorkel, we also trained the classifier on labels from the `movement` heuristic. It is not surprising that this doesn't meaningfully impact the error rate. In fact, had it done so, I'd be more likely to attribute it to a bug in my code than to anything else.
 
 Training on Snorkel's probabilistic labels produces the best error rate. They are half of our best-performing heuristic (both on the dev and test set, incidentally).
 
@@ -103,7 +103,7 @@ Training on Snorkel's probabilistic labels produces the best error rate. They ar
 
 I should point out that Snorkel is not a magic wand. The heuristics that one uses should be pretty good already and should broadly cover the dataset. Also, detecting hand-signers is quite a simple computer-vision problem, in the era of GPT-4o. That being said, it is pretty exciting that it works at all and should make data acquisition cheaper in a lot of use cases.
 
-Our code is available on [GitHub](https://github.com/Longtail-AI-Foundation/sign-detect). We have used it to clean ~ 500 hours of news videos (ISL) along with transcripts. If anyone has any use for this this dataset/code, please reach out to us. We are just getting started, and honestly, don't really know what we are doing, so any thoughts/suggestions will be appreciated.
+Our code is available on [GitHub](https://github.com/Longtail-AI-Foundation/sign-detect). We have used it to clean ~ 500 hours of news videos (ISL) along with transcripts. If anyone has any use for this this dataset/code, please reach out to us. Any thoughts/suggestions will be appreciated.
 
 ---
 
