@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Detecting Sign Language in News Videos"
+title:  "Harnessing Weak Supervision to Isolate Sign Language Communicators in Crowded News Videos"
 date:   2024-08-11
 categories: blog
 ---
