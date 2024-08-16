@@ -80,7 +80,7 @@ Here I describe the heuristics I developed for classifying pose sequences.
 | movement                       | 0.05               | 0.08                | 1.00             | 1.00              |
 | chest level                    | 0.15               | 0.16                | 1.00             | 1.00              |
 
-**Table 1:** Labelling Functions: Error Rate (1 − Accuracy) and Coverage (the fraction of data points they don’t abstain from labelling) of different labelling functions. See section 4.2 for description of each. Note that our dev and test sets are class balanced i.e. they have equal number of hand-signers and non-hand-signers. The dev set was used to tune the thresholds in the heuristics.
+**Table 1:** Labelling Functions: Error Rate (1 − Accuracy) and Coverage (the fraction of data points they don’t abstain from labelling) of different labelling functions. Note that our dev and test sets are class balanced i.e. they have equal number of hand-signers and non-hand-signers. The dev set was used to tune the thresholds in the heuristics.
 
 # Evaluation
 
