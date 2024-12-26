@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="Portrait Relighting">
+    <meta property="og:url" content="synthlight-relight.github.io"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+
+
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>SynthLight: Portrait Relighting with Diffusion Model by Learning to Re-render Synthetic Faces</title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+  </head>
+  <body>
+
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">SynthLight: Portrait Relighting with Diffusion Model by Learning to Re-render Synthetic Faces</h1>
+              <div class="is-size-5 publication-authors">
+                <!-- Paper authors -->
+                <span class="author-block">
+                  Anonymous CVPR 2025 Submission <br/>
+                  Paper ID: 12158
+                </span>
+              </div>
+
+              <!-- <div class="is-size-5 publication-authors">
+                <span class="author-block">Institution Name<br>Conferance name and year</span>
+                <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                </div> -->
+
+                <div class="column has-text-centered">
+                  <div class="publication-links">
+                    <!-- Arxiv PDF link -->
+
+                    <!-- Supplementary PDF link -->
+
+                    <!-- Github link -->
+
+                    <!-- ArXiv abstract Link -->
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Teaser video-->
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/new_teaser.mp4"
+                    type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            SynthLight performs relighting on portraits using an environment map lighting. By learning to re-render synthetic human faces, our diffusion model produces realistic illumination effects on real portrait photographs, including distinct cast shadows on the neck and natural specular highlights on the skin. Despite being trained exclusively on synthetic headshot images for relighting, the model demonstrates remarkable generalization to diverse scenarios, successfully handling half-body portraits and even full-body figurines.
+          </h2>
+        </div>
+      </div>
+    </section>
+    <!-- End teaser video -->
+
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+              We introduce SynthLight, a diffusion model for portrait relighting. Our approach frames image relighting as a re-rendering problem, where pixels are transformed in response to changes in environmental lighting conditions. Using a physically-based rendering engine, we synthesize a dataset to simulate this lighting-conditioned transformation with 3D head assets under varying lighting. We propose two training and inference strategies to bridge the gap between the synthetic and real image domains: (1) multi-task training that takes advantage of real human portraits without lighting labels; (2) an inference time diffusion sampling procedure based on classifier-free guidance that leverages the input portrait to better preserve details. Our method generalizes to diverse real photographs and produces realistic illumination effects, including specular highlights and cast shadows, while preserving the subject's identity. Our quantitative experiments on Light Stage data demonstrate results comparable to state-of-the-art relighting methods. Our qualitative results on in-the-wild images showcase rich and unprecedented illumination effects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End paper abstract -->
+
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <h2 class="title is-3">Close-up Portraits</h2>
+              <div class="content has-text-justified">
+                <p>
+                SynthLight relights close-up portraits by continuously rotating an environment map. Training on synthetic data helps us capture illumination effects such as specular highlights from skin, subsurface scattering in ears due to intense backlight, rim-effects in hair, hard cast-shadows, all while maintaining the identity of the original subject and the harmony of the entire composition.
+                </p>
+
+                <!-- Responsive Video Container Styles -->
+                <style>
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 25px;
+  height: 0;
+}
+                  .video-container video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                  }
+                </style>
+
+                <table class="table is-striped is-fullwidth video-table">
+                  <tbody>
+
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_videos_for_website/img_009_015.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_videos_for_website/img_009_016.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_female_out/img_004_010.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_female_out/img_004_007.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 1 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_videos_for_website/img_000_012.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_videos_for_website/img_000_004.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_videos_for_website/img_003_007.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_videos_for_website/img_003_019.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 4 -->
+
+                    <!-- Row 5 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_female_out/img_002_018.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_female_out/img_002_015.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 6 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_female_out/img_000_002.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/basic_female_out/img_000_003.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End image carousel -->
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <h2 class="title is-3">Full-Body Portraits</h2>
+              <div class="content has-text-justified">
+                <p>
+                We apply SynthLight on full-body portraits, a domain not present in our synthetic dataset, and find that it generalises surprisingly well to such portraits.
+                </p>
+
+                <!-- Responsive Video Container Styles -->
+                <style>
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 25px;
+  height: 0;
+}
+                  .video-container video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                  }
+                </style>
+
+                <table class="table is-striped is-fullwidth video-table">
+                  <tbody>
+                    <!-- Row 1 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/full_body_renders_for_website/img_000_009.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/full_body_renders_for_website/img_000_013.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/full_body_renders_for_website/img_002_007.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/full_body_renders_for_website/img_002_004.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/full_body_renders_for_website/img_005_005.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/full_body_renders_for_website/img_005_017.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <h2 class="title is-3">Rim Lighting</h2>
+              <div class="content has-text-justified">
+                <p>
+                Our method generates plausible rim-lighting when a strong light source is behind the individual in the input portrait 
+                </p>
+
+                <!-- Responsive Video Container Styles -->
+                <style>
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 25px;
+  height: 0;
+}
+                  .video-container video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                  }
+                </style>
+
+                <table class="table is-striped is-fullwidth video-table">
+                  <tbody>
+                    <!-- Row 1 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/rim_effects_out/videos/img_001_001.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/rim_effect_out/videos//img_002_002.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <h2 class="title is-3">Face Paint</h2>
+              <div class="content has-text-justified">
+                <p>
+                Our method works reliably, even when faces are painted. This is inspite the fact that our method uses only synthetic data for relighting supervision. 
+                </p>
+
+                <!-- Responsive Video Container Styles -->
+                <style>
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 25px;
+  height: 0;
+}
+                  .video-container video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                  }
+                </style>
+
+                <table class="table is-striped is-fullwidth video-table">
+                  <tbody>
+                    <!-- Row 1 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/face_paint_portraits/img_003_000.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/face_paint_portraits/img_003_001.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/face_paint_portraits/img_001_005.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/face_paint_portraits/img_001_002.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <h2 class="title is-3">Miniatures and Figurines</h2>
+              <div class="content has-text-justified">
+                <p>
+                We stress-test SynthLight by testing it on toys, figurines and non-photorealistic 3D characters, to elucidate it's generalization capabilities. We find that surprisingly, plausible shadows are cast on floor from various objects in the scene, in response to change in lighting.
+                </p>
+
+                <!-- Responsive Video Container Styles -->
+                <style>
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 25px;
+  height: 0;
+}
+                  .video-container video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                  }
+                </style>
+
+                <table class="table is-striped is-fullwidth video-table">
+                  <tbody>
+                    <!-- Row 1 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/miniature_videos_laid_out/img_000_003.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/miniature_videos_laid_out/img_000_005.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/miniature_videos_laid_out/img_007_009.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/miniature_videos_laid_out/img_007_012.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/miniature_videos_laid_out/img_003_017.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls>
+                            <source src="static/miniature_videos_laid_out/img_003_016.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- End video carousel -->
+
+    <!-- Paper poster -->
+    <!-- <section class="hero is-small is-light">
+      <div class="hero-body">
+      <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+      </iframe>
+
+      </div>
+      </div>
+      </section> -->
+      <!--End paper poster -->
+
+
+      <!--BibTex citation -->
+      <!-- <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>BibTex Code Here</code></pre>
+        </div>
+      </section> -->
+      <!--End BibTex citation -->
+
+
+      <footer class="footer">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+
+                <p>
+                This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                  Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Statcounter tracking code -->
+
+      <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+      <!-- End of Statcounter Code -->
+
+  </body>
+</html>

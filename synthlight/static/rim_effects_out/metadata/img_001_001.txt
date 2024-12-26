@@ -1,0 +1,2 @@
+/sensei-fs-3/users/suchatur/expts/IC-Light/examples/img_81.png
+/sensei-fs/tenants/Sensei-AdobeResearchTeam/share-zshu/Relighting_Dataset/polyhaven_4k/neurathen_rock_castle_16k.exr0001.exr
