@@ -143,8 +143,8 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
             <div class="column is-full">
-              <h2 class="title is-3">Main Results</h2>
-              <h2 class="title is-4">Close-up Portraits</h2>
+              <h2 class="title is-2">Main Results</h2>
+              <h2 class="title is-3">Close-up Portraits</h2>
               <div class="content has-text-justified">
                 <p>
                 SynthLight relights close-up portraits by continuously rotating an environment map. Training on synthetic data helps us capture illumination effects such as specular highlights from skin, subsurface scattering in ears due to intense backlight, rim-effects in hair, hard cast-shadows, all while maintaining the identity of the original subject and the harmony of the entire composition.
@@ -306,7 +306,7 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
             <div class="column is-full">
-              <h2 class="title is-4">Half-Body Portraits</h2>
+              <h2 class="title is-3">Half-Body Portraits</h2>
               <div class="content has-text-justified">
                 <p>
                 We apply SynthLight on half-body portraits, a domain not present in our synthetic dataset, and find that it generalises surprisingly well to such portraits.
@@ -403,68 +403,39 @@
       </div>
     </section>
 
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-full">
-              <h2 class="title is-3">Portrait Illumination Effects</h2>
-              <div class="content has-text-justified">
-                <p>
-                Our method generates plausible rim-lighting when a strong light source is behind the individual in the input portrait 
-                </p>
+  <style>
+    figure img {
+      width: 400px; /* Set your preferred width here */
+      height: auto; /* Maintain aspect ratio */
+      display: block;
+    }
+  </style>
 
-                <!-- Responsive Video Container Styles -->
-                <style>
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  padding-top: 25px;
-  height: 0;
-}
-                  .video-container video {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                  }
-                </style>
-
-                <table class="table is-striped is-fullwidth video-table">
-                  <tbody>
-                    <!-- Row 1 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline>
-                            <source src="static/rim_effects_out/videos/img_001_001.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline>
-                            <source src="static/rim_effects_out/videos/img_002_002.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-
-                  </tbody>
-                </table>
-
-
-              </div>
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h2 class="title is-3">Portrait Illumination Effects</h2>
+            <div class="content has-text-justified">
+              <p>
+              We demonstrate a variety of interesting portrait illumination effects for human portraits such as rim lighting in hair, subsurface scattering in ears, strong cast shadows and more!
+              </p>
+              <table class="table is-striped is-fullwidth is-light">
+                <tbody>
+                  <tr>
+                    <td>
+                      <img src="static/portrait_effects/Table.png" alt="Table illustrating portrait relighting effects">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
+    </div>
+  </section>
 
     <section class="hero is-small">
       <div class="hero-body">
