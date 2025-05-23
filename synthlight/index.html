@@ -110,11 +110,18 @@
     <section class="hero teaser">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <video poster="" id="tree" autoplay controls autoplay loop muted playsinline muted loop height="100%">
-            <!-- Your video here -->
-            <source src="static/new_teaser.mp4"
-                    type="video/mp4">
-          </video>
+          <div style="position:relative; top:-20px;">
+          <div style="position:relative;width:100%;padding-bottom:56.25%;">
+            <iframe
+              src="https://www.youtube.com/embed/wVSDHN86Gfc"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          </div>
           <h2 class="subtitle has-text-centered">
             SynthLight relights human portraits using an environment map lighting. By learning to re-render synthetic human faces, our diffusion model produces realistic illumination effects on real portrait photographs, including distinct cast shadows on the neck and natural specular highlights on the skin. 
           </h2>
@@ -140,8 +147,33 @@
     </section>
     <!-- End paper abstract -->
 
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <h2 class="title is-2">Method</h2>
+              <div class="content has-text-justified">
+                <table class="table is-striped is-fullwidth is-light">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <img src="static/SynthLightDitVariantFigure.png" alt="Method figure">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>
+                  (a) We formulate relighting as re-rendering synthetic faces. (c) In SynthLight, we propose multi-task training to: (1) re-render synthetic faces, and (2) generate portraits from text without image conditioning. (c) During inference, we apply classifier-free guidance on the input portrait. (d) To test the generality of our formulation, we train a simplified DiT-based variant, SynthLight-DiT, solely on synthetic data to predict both the input and relit portraits, using channel conditioning as in <a href="https://arxiv.org/abs/2503.11647" target="_blank" rel="noopener noreferrer">ReCamMaster</a>. This variant performs competitively, underscoring the strength of our core approach. 
+               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="hero is-small">
+
+    <section class="hero is-light">
       <div class="hero-body">
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
