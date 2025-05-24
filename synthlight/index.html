@@ -147,7 +147,7 @@
     </section>
     <!-- End paper abstract -->
 
-    <section class="hero">
+    <section class="hero ">
       <div class="hero-body">
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
@@ -158,7 +158,7 @@
                   <tbody>
                     <tr>
                       <td>
-                        <img src="static/SynthLightDitVariantFigure.png" alt="Method figure">
+                        <img src="static/MethodFigure.png" alt="Method figure">
                       </td>
                     </tr>
                   </tbody>
@@ -172,196 +172,35 @@
       </div>
     </section>
 
-
-    <section class="hero is-light">
+    <section class="hero is-light is-small">
       <div class="hero-body">
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
             <div class="column is-full">
-              <h2 class="title is-2">Main Results</h2>
-              <h2 class="title is-3">Close-up Portraits</h2>
+              <h2 class="title is-2">Results</h2>
+              <h2 class="title is-4">Close-up Portraits</h2>
+              <!-- <h2 class="title is-4">Face Paint</h2> --> 
               <div class="content has-text-justified">
                 <p>
-                SynthLight relights close-up portraits by continuously rotating an environment map. Training on synthetic data helps us capture illumination effects such as specular highlights from skin, subsurface scattering in ears due to intense backlight, rim-effects in hair, hard cast-shadows, all while maintaining the identity of the original subject and the harmony of the entire composition.
+                SynthLight relights close-up portraits by smoothly rotating an environment map. Training on synthetic data enables it to realistically capture effects like specular highlights on skin, subtle subsurface scattering in ears under backlighting, rim lighting in hair, and clear cast shadows, all while preserving the original subject's identity and overall visual coherence. 
                 </p>
-
                 <!-- Responsive Video Container Styles -->
                 <style>
+/* 1 – let all cells share equal width */
+.video-table   { table-layout: fixed; width: 100%; }
+
+/* 2 – give each wrapper the exact aspect ratio of the clips */
 .video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  padding-top: 25px;
-  height: 0;
+  aspect-ratio: 1 / 1;   /* or 2 / 1, 4 / 3 … whatever your files use */
+  overflow: hidden;       /* hides any stray borders */
 }
-                  .video-container video {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                  }
-                </style>
 
-                <table class="table is-striped is-fullwidth video-table">
-                  <tbody>
-
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_videos_for_website/img_009_015.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_videos_for_website/img_009_016.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_female_out/img_004_010.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_female_out/img_004_007.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <!-- Row 1 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_videos_for_website/img_000_012.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_videos_for_website/img_000_004.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <!-- Row 2 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_videos_for_website/img_003_007.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_videos_for_website/img_003_019.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <!-- Row 4 -->
-
-                    <!-- Row 5 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_female_out/img_002_018.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_female_out/img_002_015.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <!-- Row 6 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_female_out/img_000_002.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline autoplay loop muted playsinline>
-                            <source src="static/basic_female_out/img_000_003.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End image carousel -->
-
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-full">
-              <h2 class="title is-3">Half-Body Portraits</h2>
-              <div class="content has-text-justified">
-                <p>
-                We apply SynthLight on half-body portraits, a domain not present in our synthetic dataset, and find that it generalises surprisingly well to such portraits.
-                </p>
-
-                <!-- Responsive Video Container Styles -->
-                <style>
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  padding-top: 25px;
-  height: 0;
+/* 3 – video should simply fill that rectangle */
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* keeps the whole frame visible, no cropping */
 }
-                  .video-container video {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                  }
                 </style>
 
                 <table class="table is-striped is-fullwidth video-table">
@@ -371,7 +210,7 @@
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/full_body_renders_for_website/img_000_009.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_009_016.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -379,19 +218,7 @@
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/full_body_renders_for_website/img_000_013.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <!-- Row 3 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline>
-                            <source src="static/full_body_renders_for_website/img_002_007.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_000_004.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -399,19 +226,18 @@
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/full_body_renders_for_website/img_002_004.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_002_015.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
                       </td>
                     </tr>
 
-                    <!-- Row 2 -->
                     <tr>
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/full_body_renders_for_website/img_005_005.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_009_015.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -419,7 +245,72 @@
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/full_body_renders_for_website/img_005_017.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_000_012.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls autoplay loop muted playsinline>
+                            <source src="static/results_slider/img_002_018.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr><td /> <td /> <td /> </tr>
+
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls autoplay loop muted playsinline>
+                            <source src="static/results_slider/img_004_010.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls autoplay loop muted playsinline>
+                            <source src="static/results_slider/img_003_019.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls autoplay loop muted playsinline>
+                            <source src="static/results_slider/img_000_003.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <td>
+                        <div class="video-container">
+                          <video controls autoplay loop muted playsinline>
+                            <source src="static/results_slider/img_004_007.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls autoplay loop muted playsinline>
+                            <source src="static/results_slider/img_003_007.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls autoplay loop muted playsinline>
+                            <source src="static/results_slider/img_000_002.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -437,78 +328,67 @@
         </div>
       </div>
     </section>
+
 
   <style>
     figure img {
       width: 400px; /* Set your preferred width here */
       height: auto; /* Maintain aspect ratio */
       display: block;
+      padding: 0;
+      margin: 0;
+    }
+    figure {
+      margin: 0;
+      padding: 0;
     }
   </style>
 
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full">
-            <h2 class="title is-3">Portrait Illumination Effects</h2>
-            <div class="content has-text-justified">
-              <p>
-              We demonstrate a variety of interesting portrait illumination effects for human portraits such as rim lighting in hair, subsurface scattering in ears, strong cast shadows and more!
-              </p>
-              <table class="table is-striped is-fullwidth is-light">
-                <tbody>
-                  <tr>
-                    <td>
-                      <img src="static/portrait_effects/Table.png" alt="Table illustrating portrait relighting effects">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
     <section class="hero is-small">
       <div class="hero-body">
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
             <div class="column is-full">
-              <h2 class="title is-3">Generalization Capabilities</h2>
-              <h2 class="title is-4">Face Paint</h2>
+              <h2 class="title is-4">Generalization Capabilities</h2>
+              <!-- <h2 class="title is-4">Face Paint</h2> --> 
               <div class="content has-text-justified">
                 <p>
-                Our method works reliably, even when faces are painted. This is inspite the fact that our method uses only synthetic data for relighting supervision. 
+                SynthLight generalizes surprisingly well beyond its training domain: it reliably handles half-body portraits and painted faces, despite training solely on synthetic data. Moreover, stress tests on figurines and non-photorealistic 3D characters reveal its remarkable ability to produce plausible shadows and accurate lighting effects in diverse scenarios.
                 </p>
-
                 <!-- Responsive Video Container Styles -->
                 <style>
+/* 1 – let all cells share equal width */
+.video-table   { table-layout: fixed; width: 100%; }
+
+/* 2 – give each wrapper the exact aspect ratio of the clips */
 .video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  padding-top: 25px;
-  height: 0;
+  aspect-ratio: 1 / 1;   /* or 2 / 1, 4 / 3 … whatever your files use */
+  overflow: hidden;       /* hides any stray borders */
 }
-                  .video-container video {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                  }
+
+/* 3 – video should simply fill that rectangle */
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* keeps the whole frame visible, no cropping */
+}
                 </style>
 
                 <table class="table is-striped is-fullwidth video-table">
                   <tbody>
                     <!-- Row 1 -->
                     <tr>
+                      <th> Half-body Portraits </th>
+                      <th> Face Paint </th>
+                      <th> Miniatures and Figurines </th>
+                    </tr>
+
+                    <tr>
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/face_paint_portraits/img_003_000.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_002_004.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -516,19 +396,26 @@
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/face_paint_portraits/img_003_001.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_003_001.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="video-container">
+                          <video controls autoplay loop muted playsinline>
+                            <source src="static/results_slider/img_003_017.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
                       </td>
                     </tr>
 
-                    <!-- Row 3 -->
                     <tr>
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/face_paint_portraits/img_001_005.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_005_005.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -536,61 +423,7 @@
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/face_paint_portraits/img_001_002.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-
-                  </tbody>
-                </table>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-full">
-              <h2 class="title is-4">Miniatures and Figurines</h2>
-              <div class="content has-text-justified">
-                <p>
-                We stress-test SynthLight by testing it on toys, figurines and non-photorealistic 3D characters, to elucidate it's generalization capabilities. We find that surprisingly, plausible shadows are cast on floor from various objects in the scene, in response to change in lighting.
-                </p>
-
-                <!-- Responsive Video Container Styles -->
-                <style>
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  padding-top: 25px;
-  height: 0;
-}
-                  .video-container video {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                  }
-                </style>
-
-                <table class="table is-striped is-fullwidth video-table">
-                  <tbody>
-                    <!-- Row 1 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline>
-                            <source src="static/miniature_videos_laid_out/img_000_003.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_001_005.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -598,47 +431,7 @@
                       <td>
                         <div class="video-container">
                           <video controls autoplay loop muted playsinline>
-                            <source src="static/miniature_videos_laid_out/img_000_005.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <!-- Row 3 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline>
-                            <source src="static/miniature_videos_laid_out/img_007_009.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline>
-                            <source src="static/miniature_videos_laid_out/img_007_012.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <!-- Row 2 -->
-                    <tr>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline>
-                            <source src="static/miniature_videos_laid_out/img_003_017.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="video-container">
-                          <video controls autoplay loop muted playsinline>
-                            <source src="static/miniature_videos_laid_out/img_003_016.mp4" type="video/mp4">
+                            <source src="static/results_slider/img_007_012.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -658,30 +451,44 @@
     </section>
 
 
-    <!-- End video carousel -->
 
-    <!-- Paper poster -->
-    <!-- <section class="hero is-small is-light">
+    <section class="hero is-light">
       <div class="hero-body">
-      <div class="container">
-      <h2 class="title">Poster</h2>
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <h2 class="title is-2">Comparisons</h2>
 
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-      </iframe>
+              <img src="static/ComparisonFigure.png" alt="Comparisons">
 
+              <h2 class="title is-4">User Study Results</h2>
+              <div class="content has-text-justified">
+                <img src="static/UserStudyResults.png" alt="User Study Results">
+                <p>
+                User preference rates indicate how often SynthLight was preferred over baselines; e.g., our method was preferred 92% of times in terms of lighting over IC-Light. SynthLight outperforms baselines in lighting, image quality, and subject identity as all preference rates exceed 50%.
+               </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
-      </section> -->
-      <!--End paper poster -->
+    </section>
 
 
       <!--BibTex citation -->
-      <!-- <section class="section" id="BibTeX">
+      <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-        <pre><code>BibTex Code Here</code></pre>
+        <pre><code>
+        @article{chaturvedi2025synthlight,
+          title={SynthLight: Portrait Relighting with Diffusion Model by Learning to Re-render Synthetic Faces},
+          author = {Chaturvedi, Sumit and Ren, Mengwei and Hold-Geoffroy, Yannick and Liu, Jingyuan and Dorsey, Julie and Shu, Zhixin},
+          journal={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+          year={2025}
+        }
+        </code></pre>
         </div>
-      </section> -->
+      </section>
       <!--End BibTex citation -->
 
 
